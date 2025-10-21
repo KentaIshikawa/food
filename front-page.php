@@ -1,3 +1,5 @@
+こんにちは
+
 <?php get_header(); ?>
   <?php if(is_home()): ?>
   <section class="kv">
