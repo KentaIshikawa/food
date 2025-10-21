@@ -24,7 +24,10 @@
             <h2 class="archive_title">年別</h2>
             <ul class="archive_list">
             <?php
-              wp_get_archives();
+              $args = [
+                'type'=>'yearly',
+              ];
+              wp_get_archives($args);
             ?>
             </ul>
           </div>
