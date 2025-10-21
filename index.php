@@ -14,7 +14,7 @@
               <!-- <li class="current-cat"><a href="#">お知らせ</a></li>
               <li><a href="#">コラム</a></li> -->
               <?php
-                
+                wp_list_categories();
               ?>
             </ul>
           </div>
