@@ -12,15 +12,7 @@
 
         <div class="section_body">
           <div class="content">
-
-            <img src="assets/img/concept/banner_img@2x.jpg" alt="">
-
-            <p>FOOD SCIENCEでご提供するメキシコ料理は、当店の店主が修行したローカルフードを中心にした、ご家族でも楽しめる美味しいメキシカンです。</p>
-            <p>
-              スパイシーでヘルシーな本場の味をお楽しみ下さい。<br>
-              皆様のご来店お待ちしております。
-            </p>
-
+            <?php the_content(); ?>
           </div>
         </div>
       </div>
