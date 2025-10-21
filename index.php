@@ -11,8 +11,6 @@
           <div class="archive_category">
             <h2 class="archive_title">カテゴリー</h2>
             <ul class="archive_list">
-              <!-- <li class="current-cat"><a href="#">お知らせ</a></li>
-              <li><a href="#">コラム</a></li> -->
               <?php
                 $args = [
                   'title_li'=> '',
@@ -25,8 +23,9 @@
           <div class="archive_yealy">
             <h2 class="archive_title">年別</h2>
             <ul class="archive_list">
-              <li><a href='#'>2023</a></li>
-              <li><a href='#'>2022</a></li>
+            <?php
+              wp_get_archives();
+            ?>
             </ul>
           </div>
         </div>
