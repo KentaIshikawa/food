@@ -14,7 +14,10 @@
               <!-- <li class="current-cat"><a href="#">お知らせ</a></li>
               <li><a href="#">コラム</a></li> -->
               <?php
-                wp_list_categories();
+                $args = [
+                  'title_li'=> '',
+                ];
+                wp_list_categories($args);
               ?>
             </ul>
           </div>
