@@ -1,4 +1,5 @@
   <footer class="footer">
+    <?php get_template_part('template-parts/breadcrumb'); ?>
     <div class="footer_inner">
       <div class="footer_info">
         <div class="footer_logo">
@@ -10,11 +11,7 @@
       </div>
       <section class="footer_sns">
         <h3>SHARE ON</h3>
-        <!-- <ul>
-          <li><a href="#"><i class="fab fa-facebook"></i></a></li>
-          <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-          <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-        </ul> -->
+
         <?php
           $args = [
             'menu' => 'footer-sns',
