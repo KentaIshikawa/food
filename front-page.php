@@ -42,7 +42,7 @@
           スパイシーでヘルシーな本場の味をお楽しみ下さい。
         </p>
         <div class="section_btn">
-          <a href="" class="btn btn-more">もっと見る</a>
+          <a href="<?php echo get_permalink(35); ?>" class="btn btn-more">もっと見る</a>
         </div>
       </div>
     </div>
