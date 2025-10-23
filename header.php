@@ -38,7 +38,7 @@
 
         <div class="header_info">
           <form action="<?php echo home_url('/'); ?>" method="get" class="header_search">
-            <input type="text" name="s" aria-label="Search">
+            <input type="text" name="s" value="<?php the_search_query(); ?>" aria-label="Search">
             <button type="submit"><i class="fas fa-search"></i></button>
           </form>
 
