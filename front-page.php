@@ -57,9 +57,8 @@
           <?php
             $news = get_term_by('slug','news','category');
             $news_link = get_term_link($news,'category');
-            echo $news_link;
           ?>
-          <div class="section_headerBtn"><a href="" class="btn btn-more">もっと見る</a></div>
+          <div class="section_headerBtn"><a href="<?php echo $news_link; ?>" class="btn btn-more">もっと見る</a></div>
         </header>
         <div class="section_body">
           <div class="cardList cardList-1row">
