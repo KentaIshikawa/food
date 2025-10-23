@@ -72,6 +72,19 @@
           <?php endwhile; ?>
         <?php endif; ?>
 
+        <?php
+        $args = [
+          'post_type'=>'post',//投稿記事だけを設定
+          'posts_per_page'=>3,//最新記事を3件表示
+        ];
+        
+        $latest_query = new WP_Query($args);
+        ?>
+        <?php if($latest_query->have_posts()): ?>
+          <?php while($latest_query->have_posts()):$latest_query->the_post(); ?>
+            <h3><?php the_title(); ?></h3>
+          <?php endwhile; ?>
+        <?php endif; ?>
 
 
       </div>
