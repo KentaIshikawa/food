@@ -56,9 +56,8 @@
           <h2 class="heading heading-primary"><span>最新情報</span>NEWS</h2>
           <?php
             $news = get_term_by('slug','news','category');
-            echo '<pre>';
-            print_r($news);
-            echo '</pre>';
+            $news_link = get_term_link($news,'category');
+            echo $news_link;
           ?>
           <div class="section_headerBtn"><a href="" class="btn btn-more">もっと見る</a></div>
         </header>
