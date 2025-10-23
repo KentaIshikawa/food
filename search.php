@@ -18,6 +18,10 @@
                 <?php get_template_part('template-parts/loop','news'); ?>
               <?php endwhile; ?>
             </div>
+          <?php else: ?>
+            <div class="section_desc">
+              <p>検索結果はありませんでした</p>
+            </div>
           <?php endif; ?>
         </div>
       </div>
