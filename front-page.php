@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-  <?php if(is_home()): ?>
+ 
   <section class="kv">
     <div class="kv_inner">
       <h1 class="kv_title">FOOD SCIENCE<br>TOKYO</h1>
@@ -20,10 +20,7 @@
       </a>
     </div>
   </section>
-  <?php endif; ?>
 
-  
-  
   <section class="section section-concept" id="concept">
     <div class="section_inner">
       <div class="section_headerWrapper">
