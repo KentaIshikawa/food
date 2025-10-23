@@ -87,7 +87,7 @@
           <li class="infoList_item">
             <span class="infoList_prepend">メールでのお問い合わせ</span>
             <div class="infoList_btn">
-              <a href="" class="btn btn-primary">お問い合わせ</a>
+              <a href="<?php echo home_url('/contact/'); ?>" class="btn btn-primary">お問い合わせ</a>
             </div>
           </li>
         </ul>
