@@ -11,7 +11,7 @@
           <?php if(have_posts()): ?>
 
             <div class="section_desc">
-                <p><i class="fas fa-search"></i> 検索ワード「メニュー」</p>
+                <p><i class="fas fa-search"></i> 検索ワード「<?php the_search_query(); ?>」</p>
             </div>
             <div class="cardList">
               <?php while(have_posts()):the_post(); ?>
