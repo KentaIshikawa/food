@@ -1,93 +1,98 @@
 <?php get_header(); ?>
 
-  <main>
-    <div class="section">
-      <div class="section_inner">
-        <?php if(have_posts()): ?>
-          <?php while(have_posts()):the_post(); ?>
-            
+<main>
+  <div class="section">
+    <div class="section_inner">
+      <?php if (have_posts()): ?>
+        <?php while (have_posts()): the_post(); ?>
 
-        <article id="post-<?php the_ID(); ?>" <?php post_class('post'); ?>>
-          <header class="section_header">
-            <h1 class="heading heading-primary"><?php the_title(); ?></h1>
-          </header>
-          <div class="post_content">
-            <time datetime="<?php the_time('Y-m-d'); ?>"><?php the_time('Y年m月d日'); ?></time>
-            <div class="content">
+
+          <article id="post-<?php the_ID(); ?>" <?php post_class('post'); ?>>
+            <header class="section_header">
+              <h1 class="heading heading-primary"><?php the_title(); ?></h1>
+            </header>
+            <div class="post_content">
+              <time datetime="<?php the_time('Y-m-d'); ?>"><?php the_time('Y年m月d日'); ?></time>
+              <div class="content">
                 <?php the_content(); ?>
-            </div>
-          </div>
-          <footer class="post_footer">
-            <?php
-            $categories = get_the_category();
-            // echo '<pre>';
-            // print_r($categories);
-            // echo '</pre>';
-            if($categories):
-            ?>
-            <div class="category">
-              <div class="category_list">
-                <?php foreach($categories as $category): ?>
-                  <div class="category_item">
-                    <a href="<?php echo get_category_link($category); ?>" class="btn btn-sm is-active">
-                      <?php echo $category->name; ?>
-                    </a>
-                  </div>
-                <?php endforeach; ?>
               </div>
             </div>
-            <?php endif; ?>
-
-            <div class="prevNext">
+            <footer class="post_footer">
               <?php
-              $previous_post = get_previous_post();
+              $categories = get_the_category();
               // echo '<pre>';
-              // print_r($previous_post);
+              // print_r($categories);
               // echo '</pre>';
-              if($previous_post):
+              if ($categories):
               ?>
-                <div class="prevNext_item prevNext_item-prev">
-                  <a href="<?php the_permalink($previous_post); ?>">
-                    <svg width="20" height="38" viewBox="0 0 20 38"><path d="M0,0,19,19,0,38" transform="translate(20 38) rotate(180)" fill="none" stroke="#224163" stroke-width="1" /></svg>
-                    <span><?php echo get_the_title($previous_post); ?></span>
-                  </a>
+                <div class="category">
+                  <div class="category_list">
+                    <?php foreach ($categories as $category): ?>
+                      <div class="category_item">
+                        <a href="<?php echo get_category_link($category); ?>" class="btn btn-sm is-active">
+                          <?php echo $category->name; ?>
+                        </a>
+                      </div>
+                    <?php endforeach; ?>
+                  </div>
                 </div>
               <?php endif; ?>
 
-              <?php
+              <div class="prevNext">
+                <?php
+                $previous_post = get_previous_post();
+                // echo '<pre>';
+                // print_r($previous_post);
+                // echo '</pre>';
+                if ($previous_post):
+                ?>
+                  <div class="prevNext_item prevNext_item-prev">
+                    <a href="<?php the_permalink($previous_post); ?>">
+                      <svg width="20" height="38" viewBox="0 0 20 38">
+                        <path d="M0,0,19,19,0,38" transform="translate(20 38) rotate(180)" fill="none" stroke="#224163" stroke-width="1" />
+                      </svg>
+                      <span><?php echo get_the_title($previous_post); ?></span>
+                    </a>
+                  </div>
+                <?php endif; ?>
+
+                <?php
                 $next_post = get_next_post();
-                if($next_post):
-              ?>
-              <div class="prevNext_item prevNext_item-next">
-                <a href="<?php the_permalink($next_post); ?>">
-                  <span><?php echo get_the_title($next_post); ?></span>
-                  <svg width="20" height="38" viewBox="0 0 20 38"><path d="M1832,1515l19,19L1832,1553" transform="translate(-1832 -1514)" fill="none" stroke="#224163" stroke-width="1" /></svg>
-                </a>
+                if ($next_post):
+                ?>
+                  <div class="prevNext_item prevNext_item-next">
+                    <a href="<?php the_permalink($next_post); ?>">
+                      <span><?php echo get_the_title($next_post); ?></span>
+                      <svg width="20" height="38" viewBox="0 0 20 38">
+                        <path d="M1832,1515l19,19L1832,1553" transform="translate(-1832 -1514)" fill="none" stroke="#224163" stroke-width="1" />
+                      </svg>
+                    </a>
+                  </div>
+                <?php endif; ?>
               </div>
-              <?php endif; ?>
-            </div>
-          </footer>
-        </article>
+            </footer>
+          </article>
 
-          <?php endwhile; ?>
-        <?php endif; ?>
+        <?php endwhile; ?>
+      <?php endif; ?>
 
-        <?php
-        $args = [
-          'post_type'=>'post',//投稿記事だけを設定
-          'posts_per_page'=>3,//最新記事を3件表示
-        ];
-        
-        $latest_query = new WP_Query($args);
-        ?>
-        <?php if($latest_query->have_posts()): ?>
-          <?php while($latest_query->have_posts()):$latest_query->the_post(); ?>
-            <h3><?php the_title(); ?></h3>
-          <?php endwhile; ?>
-        <?php endif; ?>
+      <?php
+
+      $args = [
+        'post_type' => 'post', //投稿記事だけを設定
+        'posts_per_page' => 3, //最新記事を3件表示
+      ];
+
+      $latest_query = new WP_Query($args);
+      ?>
+      <?php if ($latest_query->have_posts()): ?>
+        <?php while ($latest_query->have_posts()): $latest_query->the_post(); ?>
+          <h3><?php the_title(); ?></h3>
+        <?php endwhile; ?>
+      <?php endif; ?>
 
 
-      </div>
     </div>
-  </main>
+  </div>
+</main>
 <?php get_footer(); ?>
