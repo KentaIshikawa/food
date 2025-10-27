@@ -1,11 +1,15 @@
 <div class="foodCard">
-    <a href="#">
+    <a href="<?php the_permalink(); ?>">
         <span class="foodCard_label">オススメ</span>
         <div class="foodCard_pic">
-            <img src="assets/img/food/food_img01@2x.png" alt="">
+            <?php if (has_post_thumbnail()): ?>
+                <?php the_post_thumbnail('medium'); ?>
+            <?php else: ?>
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/noimage.png" alt="">
+            <?php endif; ?>
         </div>
         <div class="foodCard_body">
-            <h4 class="foodCard_title">タコス</h4>
+            <h4 class="foodCard_title"><?php the_title(); ?></h4>
             <p class="foodCard_price">¥650</p>
         </div>
     </a>
