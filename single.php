@@ -81,6 +81,7 @@
       $args = [
         'post_type' => 'post', //投稿記事だけを設定
         'posts_per_page' => 3, //最新記事を3件表示
+        'post__not_in' => [get_the_ID()]
       ];
 
       $latest_query = new WP_Query($args);
