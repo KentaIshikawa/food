@@ -36,11 +36,16 @@
               </li>
               <li class="food_item">
                 <span class="food_itemLabel">カロリー</span>
-                <span class="food_itemData">680 kcal</span>
+                <span class="food_itemData"><?php echo number_format(get_field('calorie')); ?>kcal</span>
               </li>
               <li class="food_item">
                 <span class="food_itemLabel">アレルギー</span>
-                <span class="food_itemData">小麦、そば</span>
+                <span class="food_itemData">
+                  <?php 
+                    $allergies = get_field('allergies');
+                    echo implode('、',$allergies);
+                  ?>
+                </span>
               </li>
             </ul>
           </div>
