@@ -7,8 +7,19 @@
         <h2 class="heading heading-primary"><span>フード紹介</span>FOOD</h2>
       </div>
 
+      <?php
+        $menu_terms = get_terms(['taxonomy'=>'menu']);
+        echo '<pre>';
+        print_r($menu_terms);
+        echo '</pre>';
+        if(!empty($menu_terms)):
+      ?>
+      <?php foreach($menu_terms as $menu): ?>
       <section class="section_body">
-        <h3 class="heading heading-secondary">お食事<span>MEAL</span></h3>
+        <h3 class="heading heading-secondary">
+          <?php echo $menu->name; ?>
+          <span><?php echo strtoupper($menu->slug); ?></span>
+        </h3>
         <ul class="foodList">
           <?php if (have_posts()): ?>
             <?php while (have_posts()): the_post(); ?>
@@ -19,6 +30,11 @@
           <?php endif; ?>
         </ul>
       </section>
+
+      <?php endforeach; ?>
+      <?php endif; ?>
+
+
     </div>
   </section>
 </main>
