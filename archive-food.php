@@ -9,20 +9,36 @@
 
       <?php
         $menu_terms = get_terms(['taxonomy'=>'menu']);
-        echo '<pre>';
-        print_r($menu_terms);
-        echo '</pre>';
+
         if(!empty($menu_terms)):
       ?>
       <?php foreach($menu_terms as $menu): ?>
       <section class="section_body">
         <h3 class="heading heading-secondary">
-          <?php echo $menu->name; ?>
+          <a href="<?php echo get_term_link($menu); ?>">
+            <?php echo $menu->name; ?>
+          </a>
           <span><?php echo strtoupper($menu->slug); ?></span>
         </h3>
         <ul class="foodList">
-          <?php if (have_posts()): ?>
-            <?php while (have_posts()): the_post(); ?>
+          <?php
+          $args=[
+            'post_type'=>'food',
+            'posts_per_page'=>-1,
+            'tax_query'=>[
+              'relation'=>'AND',
+              [
+                'taxonomy'=>'menu',
+                'field'=>'slug',
+                'terms'=>$menu->slug
+              ],
+            ],
+          ];
+
+          $the_query = new WP_Query($args);
+          ?>
+          <?php if ($the_query->have_posts()): ?>
+            <?php while ($the_query->have_posts()): $the_query->the_post(); ?>
               <li class="foodList_item">
                 <?php get_template_part('template-parts/loop', 'food'); ?>
               </li>
